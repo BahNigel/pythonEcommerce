@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static %}
+
+
+<!-- New Arrivals section start -->
+  <div class="collection_text">Shoes</div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		<h1 class="new_text"><strong>New Arrivals Products</strong></h1>
+    	    <p class="consectetur_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+    	</div>
+    </div>
+<div class="row">
+{% for p in items %}
+    			<div class="col-sm-4">
+    				<div class="best_shoes">
+    					<p class="best_text">{{p.name}} </p>
+    					<div class="shoes_icon">
+							{% if p.image %}
+							<a href="{% url 'item' p.id %}">
+							<img src="{{p.image}}">
+							</a>
+							{% else %}
+							<a href="{% url 'item' p.id %}">
+							<img src="{% static 'images/shoes-img5.png' %}">
+							</a>
+							{% endif %}
+						</div>
+    					<div class="star_text">
+    						<div class="left_part">
+    							{{p.description}}
+    						</div>
+    						<div class="right_part">
+    							<div class="shoes_price">$ <span style="color: #ff4e5b;">{{p.price}}</span></div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+                 {% endfor %}
+
+</div>
+
+
+
+
+
+
+    		</div>
+    	</div>
+    </div>
+   	<!-- New Arrivals section end -->
+{% endblock content %}

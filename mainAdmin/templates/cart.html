@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+
+{% block content%}
+{% load static %}
+<script type="text/javascript">
+		 var user='{{request.user}}'
+	 </script>
+    <div class="collection_section">
+    	<div class="container">
+    	</div>
+    </div>
+    <div style="background-color:white" class="collectipn_section_3 layuot_padding">
+    	<div style="background-color:white" class="container">
+    		<div style="background-color:white" class="racing_shoes">
+				<div class="row">
+						    <div class="app-card-body col-md-8">
+							    <div class="table-responsive">
+							        <table class="table app-table-hover mb-0 text-left">
+										<thead>
+											<tr>
+												<th class="cell">Item</th>
+												<th class="cell">Name</th>
+												<th class="cell">Price
+												<th class="cell">Quantity</th>
+												<th class="cell">Description</th>
+												<th class="cell">Total</th>
+												<th class="cell">User</th>
+												<th class="cell"></th>
+												<th class="cell"></th>
+											</tr>
+										</thead>
+										<tbody>
+										{% for p in prod %}
+											<tr>
+												<td class="cell"><img alt="product image" src="{{p.image}}"></td>
+												<td class="cell">{{p.name}}</td>
+												<td class="cell"><span class="truncate">${{p.price}}</span></td>
+												<td class="cell"><span data-items="{{p.quantity}}" id="items" class="truncate">
+													<input data-quantity="{{p.qtyInSt}}" data-product="{{p.id}}" type="number" name="qty" class="form-control" id="quantity" value="{{p.quantity}}" >
+												</span></td>
+
+												<td class="cell">{{p.description}}</td>
+												<td class="cell"><span  data-element="{{p.total}}" id="element" class="truncate">${{p.total}}</span></td>
+
+												<td class="cell"><a class="btn-sm app-btn-secondary" href="{% url 'delete' p.id%}">
+													<button style="height:30px;width:55px;font-size:17px;color:red;border-radius:5px">Delete</button></a></td>
+											</tr>
+										{% endfor %}
+										</tbody>
+									</table>
+						        </div><!--//table-responsive-->
+							</div>
+					<div class="col-md-2.5">
+						<div style="border: solid 2px silver;border-radius:5px;margin-left:50px;height:175px;width: 100%; padding:10px" class="">
+							<h2>Oder Details</h2>
+							<h3 id="sItems">Items: </h3>
+							<h3 id="logs">Total: $</h3>
+							<a href="#" id="order" style="height:50px;width:155px;font-size:20px;color:black;border-radius:5px;border:2px solid gray" class="btn-sm app-btn-primary">Place Order</a>
+						</div>
+					</div>
+						    </div><!--//app-card-body-->
+    		</div>
+    	</div>
+    </div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		</div>
+    </div>
+
+{% load static %}
+    <script src="{% static 'js/cart.js' %}"></script>
+	<!-- new collection section end -->
+{% endblock content %}

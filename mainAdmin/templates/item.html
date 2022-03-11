@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static %}
+
+
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>{{items.name}}</strong></h1>
+    	    <p class="consectetur_text">{{items.description}}</p>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layuot_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+    					<div class="shoes-img3">
+							<img alt="{{items.image}}" src="{{items.image.url}}">
+						</div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">{{items.name}}</span> <br></strong></div>
+    					<div class="number_text"><strong>$ <span style="color: #0a0506">{{items.price}}</span></strong></div>
+						<form method="post" action="">
+							{% csrf_token %}
+							 <div style="margin:20px" class="form-group">
+								<label for="quantity">Enter a Quantity bellow {{items.quantity}}</label>
+								<input type="number" required name="qty" class="form-control" id="quantity" placeholder="Quantity">
+							 </div>
+    					<button type="submit" class="seemore">Add to Cart</button>
+						</form>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		</div>
+    </div>
+	<!-- new collection section end -->
+{% endblock content %}

@@ -1,0 +1,47 @@
+
+{% extends 'users/base.html'%}
+
+{% block content%}
+{% load static %}
+
+
+<div class="app-wrapper">
+
+	    <div class="app-content pt-3 p-md-3 p-lg-4">
+		    <div class="container-xl">
+			    <h1 class="app-page-title">Create Product</h1>
+                <div class="row gy-4">
+	                <div class="col-12 col-lg-6">
+		                <div style="padding:40px"id="spaceBetween" class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
+							<form action="" method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								  <div style="margin:20px" class="form-group">
+									<label for="exampleInputEmail1">Name:</label>
+									<input type="text" required name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+								  </div>
+								  <div style="margin:20px" class="form-group">
+									<label for="Description">Description</label>
+									<input type="text" required name="description" class="form-control" id="Description" placeholder="Description">
+								  </div>
+								<div style="margin:20px" class="form-group">
+									<label for="price">Price</label>
+									<input type="number" required name="price" class="form-control" id="price" placeholder="Price">
+								  </div>
+								<div style="margin:20px" class="form-group">
+									<label for="quantity">Quantity in stork</label>
+									<input type="number" required name="qty" class="form-control" id="quantity" placeholder="Quantity">
+								  </div>
+									  <div style="margin:20px" class="custom-file">
+									  <input type="file" required name="image" class="custom-file-input" id="customFile">
+									  <label class="custom-file-label" for="customFile">Choose file</label>
+									</div>
+								  <button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+						</div><!--//app-card-->
+	                </div><!--//col-->
+                </div><!--//row-->
+
+		    </div><!--//container-fluid-->
+	    </div><!--//app-content-->
+</div>
+{% endblock content %}

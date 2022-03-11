@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+{% extends 'users/base.html'%}
+
+{% block content%}
+{% load static %}
+<div style="background-color:rgba(0, 0, 0, 0.7);top:0;height:100%;width:100%;position:fixed;z-index:9999;justify-content: center;align-items: center;display:flex" class="deleteBoxContainer">
+         <div style="border-radius:10px;padding:15px;position:relative;display:flex;background-color:white;height:300px;width:500px;left:30px;justify-content: center;align-items: center;" class="deleteBox">
+			 <h2>the quantity entered is greater than "{{items.quantity}}"<br/>
+				 <a href="{% url 'item' items.id %}">
+				 <button style="height:60px;font-size:25px;color:green;margin-left:5px" class="btn-sm app-btn-secondary" href="">Go Back</button>
+				 </a>
+			 </h2><br/>
+		 </div>
+     </div>
+    <div class="collection_section">
+    	<div class="container">
+    		<h1 class="new_text"><strong>{{items.name}}</strong></h1>
+    	    <p class="consectetur_text">{{items.description}}</p>
+    	</div>
+    </div>
+    <div class="collectipn_section_3 layuot_padding">
+    	<div class="container">
+    		<div class="racing_shoes">
+    			<div class="row">
+    				<div class="col-md-8">
+    					<div class="shoes-img3"><img alt="{{items.image}}" src="{{items.image}}"></div>
+    				</div>
+    				<div class="col-md-4">
+    					<div class="sale_text"><strong>Sale <br><span style="color: #0a0506;">{{items.name}}</span> <br></strong></div>
+    					<div class="number_text"><strong>$ <span style="color: #0a0506">{{items.price}}</span></strong></div>
+						<form method="post" action="">
+							{% csrf_token %}
+							 <div style="margin:20px" class="form-group">
+								<label for="quantity">Enter a Quantity bellow {{items.quantity}}</label>
+								<input type="number" required name="qty" class="form-control" id="quantity" placeholder="Quantity">
+							 </div>
+    					<button type="submit" class="seemore">Add to Cart</button>
+						</form>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="collection_section layout_padding">
+    	<div class="container">
+    		</div>
+    </div>
+	<!-- new collection section end -->
+{% endblock content %}
